@@ -58,8 +58,8 @@ function Admin3() {
       <div class="tableadmin1">
         <table id="table1" style={{ width: "60%" }}>
           <tr>
-            <th>Username</th>
             <th>อัพโหลดรูป</th>
+            <th>ประเภท</th>
             <th>จำนวนสินค้าคงเหลือ</th>
             <th>วันที่ และ เวลา</th>
             <th>แก้ไข</th>

@@ -67,8 +67,11 @@ function Header() {
             <div class="navright">
               <ul>
                 <li>
+                  <NavLink className="btn " to="/profile">
+                    Me
+                  </NavLink>
                   <NavLink className="btn " to="/" onClick={handleClickLogout}>
-                    logout
+                    Logout
                   </NavLink>
                 </li>
                 <li>

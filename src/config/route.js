@@ -112,6 +112,18 @@ const route = {
         path: "/payment",
         component: Payment,
       },
+      {
+        path: "/profile",
+        component: Profile,
+      },
+      {
+        path: "/profile-address",
+        component: ProfileAdress,
+      },
+      {
+        path: "/profile-orderstatus",
+        component: ProfileOrderStatus,
+      },
     ],
     redirect: "/",
   },
@@ -181,18 +193,6 @@ const route = {
       {
         path: "/admin5",
         component: Admin5,
-      },
-      {
-        path: "/profile",
-        component: Profile,
-      },
-      {
-        path: "/profile-address",
-        component: ProfileAdress,
-      },
-      {
-        path: "/profile-orderstatus",
-        component: ProfileOrderStatus,
       },
     ],
     redirect: "/",
