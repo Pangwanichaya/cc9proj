@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import { removeToken } from "../../server/localStorage";
-
+import axios from "../../config/axios";
 function Header() {
   const { user, setUser } = useContext(AuthContext);
 
@@ -14,6 +14,21 @@ function Header() {
     setUser(null); // update sate
     history.push("/login");
   };
+
+  const [getUser, setGetUser] = useState([]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get(`/profile/${user.id}`);
+        const resUser = res.data.user;
+        setGetUser(resUser);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchUser();
+  }, []);
 
   return (
     <div>
@@ -68,7 +83,7 @@ function Header() {
               <ul>
                 <li>
                   <NavLink className="btn " to="/profile">
-                    Me
+                    {getUser.name}
                   </NavLink>
                   <NavLink className="btn " to="/" onClick={handleClickLogout}>
                     Logout

@@ -1,6 +1,24 @@
-import React from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/authContext";
+import axios from "../config/axios";
 
 function ProfileAdress() {
+  let { user } = useContext(AuthContext);
+
+  const [getUser, setGetUser] = useState([]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get(`/profile/${user.id}`);
+        const resUser = res.data.user;
+        setGetUser(resUser);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchUser();
+  }, []);
   return (
     <>
       <section className="page14">
@@ -32,9 +50,9 @@ function ProfileAdress() {
             + เพิ่มที่อยุ่ใหม่
           </a>
           <div className="address">
-            <p id="textpage13">ชื่อ - นามสกุล :</p>
-            <p id="textpage13">เบอร์โทรศัพท์ :</p>
-            <p id="textpage13">ที่อยู่ :</p>
+            <p id="textpage13">{getUser.name}</p>
+            <p id="textpage13">{getUser.phone}</p>
+            <p id="textpage13">{getUser.address}</p>
             <div
               style={{ position: "relative", left: "80%", bottom: "50%" }}
               className="changepage11"

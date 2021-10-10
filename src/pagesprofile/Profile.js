@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { user as initailUser } from "../server/localStorage";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/authContext";
 import axios from "../config/axios";
 
 function Profile() {
-  // const result = user;
-  // console.log(result);
-  const [user, setUser] = useState(initailUser);
+  let { user } = useContext(AuthContext);
+
+  const [getUser, setGetUser] = useState([]);
+
   useEffect(() => {
-    const profile = async (id) => {
+    const fetchUser = async () => {
       try {
-        const res = await axios.get(`/profile/${id}`);
-        const user = res.data.users;
-        setUser(user);
+        const res = await axios.get(`/profile/${user.id}`);
+        const resUser = res.data.user;
+        setGetUser(resUser);
       } catch (err) {
         console.log(err);
       }
     };
-    profile();
+    fetchUser();
   }, []);
-  console.log(user);
 
   return (
     <div>
@@ -53,17 +53,20 @@ function Profile() {
         className="profile"
       >
         <p id="textpage13">ชื่อจริง - นามสกุล</p>
-        <input id="inputpage13" type="text" name="profilename" />
+        <p id="textpage13">{getUser.name}</p>
         <p id="textpage13">วัน-เดือน-ปีเกิด</p>
-        <input id="inputpage13" type="text" name="profilename" />
+        <p id="textpage13">{getUser.birthdate}</p>
         <p id="textpage13">Username</p>
-        <input id="inputpage13" type="text" name="profilename" />
+        <p id="textpage13">{getUser.username}</p>
+
         <p id="textpage13">Password</p>
-        <input id="inputpage13" type="text" name="profilename" />
+        <p id="textpage13">{getUser.password}</p>
+
         <p id="textpage13">อีเมล์</p>
-        <input id="inputpage13" type="text" name="profilename" />
+        <p id="textpage13">{getUser.email}</p>
+
         <p id="textpage13">เบอร์โทรศัพท์</p>
-        <input id="inputpage13" type="text" name="profilename" />
+        <p id="textpage13">{getUser.phone}</p>
       </div>
     </div>
   );
