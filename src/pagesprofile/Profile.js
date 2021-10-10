@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { user as initailUser } from "../server/localStorage";
 import axios from "../config/axios";
 
 function Profile() {
-  // const result = user;
-  // console.log(result);
-  const [user, setUser] = useState(initailUser);
-  useEffect(() => {
-    const profile = async (id) => {
-      try {
-        const res = await axios.get(`/profile/${id}`);
-        const user = res.data.users;
-        setUser(user);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    profile();
-  }, []);
-  console.log(user);
+  const result = initailUser;
+  const use = async () => {
+    const res = await axios.get(`/profile/${result.id}`);
+    console.log(res.data.user);
+  };
+  use();
 
   return (
     <div>
