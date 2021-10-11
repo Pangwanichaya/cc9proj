@@ -1,6 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 function Admin3() {
+  const history = useHistory();
+  const handleAddProduct = () => {
+    history.push("/adminaddproduct");
+  };
   return (
     <>
       <section class="pageadmin">
@@ -19,60 +24,50 @@ function Admin3() {
         style={{ boxSizing: "border-box", margin: "10px" }}
         class="headeradmin"
       >
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#c4c4c4" }}
-          href="./admin1.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin1">
           ใบเสร็จ
         </a>
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#c4c4c4" }}
-          href="./admin2.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin2">
           รายการสั่งซื้อ
         </a>
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#e8bcbc" }}
-          href="./admin3.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#e8bcbc" }} href="/admin3">
           คลังสินค้า
         </a>
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#c4c4c4" }}
-          href="./admin4.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin4">
           ข้อเสนอแนะลูกค้า
         </a>
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#c4c4c4" }}
-          href="./admin5.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin5">
           คูปอง
         </a>
       </div>
       <div class="tableadmin1">
+        <div className="btnAdd ">
+          <button onClick={handleAddProduct}>
+            <i class="fas fa-plus"></i> เพิ่มสินค้า
+          </button>
+        </div>
         <table id="table1" style={{ width: "60%" }}>
           <tr>
-            <th>อัพโหลดรูป</th>
+            <th>ลำดับ</th>
             <th>ประเภท</th>
-            <th>จำนวนสินค้าคงเหลือ</th>
-            <th>วันที่ และ เวลา</th>
+            <th>ภาพ</th>
+            <th>ราคา</th>
+            <th>รายละเอียด</th>
             <th>แก้ไข</th>
+            <th>ลบ</th>
           </tr>
           <tr>
             <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-            <td>50</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxxx</td>
+            <td>xxxx</td>
             <td>
-              <a style={{ margin: "10px" }} href="/">
-                เพิ่ม
+              <a href="#">
+                <i class="bi bi-hammer"></i>
               </a>
+            </td>
+            <td>
               <a href="/">
                 <i class="bi bi-trash"></i>
               </a>

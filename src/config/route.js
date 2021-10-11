@@ -19,6 +19,7 @@ import Admin5 from "../pagesadmin/Admin5";
 import Profile from "../pagesprofile/Profile";
 import ProfileAdress from "../pagesprofile/ProfileAdress";
 import ProfileOrderStatus from "../pagesprofile/ProfileOrderStatus";
+import AddFormProduct from "../component/form/admin/AddFormProduct";
 
 const route = {
   admin: {
@@ -193,6 +194,10 @@ const route = {
       {
         path: "/admin5",
         component: Admin5,
+      },
+      {
+        path: "/adminaddproduct",
+        component: AddFormProduct,
       },
     ],
     redirect: "/",

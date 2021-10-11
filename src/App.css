@@ -364,12 +364,12 @@ section .feedbackpage8 ::placeholder {
 }
 #textpage13,
 #inputpage13 {
-  margin-left: 10px;
+  margin-left: 25px;
   margin-top: 5px;
   line-height: 12px;
 }
 #textpage13 {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 /* profileaddress */

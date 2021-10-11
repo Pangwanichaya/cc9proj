@@ -46,27 +46,24 @@ function Profile() {
       <div
         style={{
           width: "600px",
-          height: "500px",
+          height: "700px",
           marginLeft: "350px",
           marginBottom: "80px",
         }}
         className="profile"
       >
         <p id="textpage13">ชื่อจริง - นามสกุล</p>
-        <p id="textpage13">{getUser.name}</p>
+        <input id="inputpage13" type="text" value={getUser.name} />
         <p id="textpage13">วัน-เดือน-ปีเกิด</p>
-        <p id="textpage13">{getUser.birthdate}</p>
+        <input id="inputpage13" type="text" value={getUser.birthdate} />
         <p id="textpage13">Username</p>
-        <p id="textpage13">{getUser.username}</p>
-
+        <input id="inputpage13" type="text" value={getUser.username} />
         <p id="textpage13">Password</p>
-        <p id="textpage13">{getUser.password}</p>
-
+        <input id="inputpage13" type="password" value={getUser.password} />
         <p id="textpage13">อีเมล์</p>
-        <p id="textpage13">{getUser.email}</p>
-
+        <input id="inputpage13" type="text" value={getUser.email} />
         <p id="textpage13">เบอร์โทรศัพท์</p>
-        <p id="textpage13">{getUser.phone}</p>
+        <input id="inputpage13" type="text" value={getUser.phone} />
       </div>
     </div>
   );
