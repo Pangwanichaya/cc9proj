@@ -19,39 +19,19 @@ function Admin2() {
         style={{ boxSizing: "border-box", margin: "10px" }}
         class="headeradmin"
       >
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#c4c4c4" }}
-          href="./admin1.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin1">
           ใบเสร็จ
         </a>
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#e8bcbc" }}
-          href="./admin2.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#e8bcbc" }} href="/admin2">
           รายการสั่งซื้อ
         </a>
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#c4c4c4" }}
-          href="./admin3.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin3">
           คลังสินค้า
         </a>
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#c4c4c4" }}
-          href="./admin4.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin4">
           ข้อเสนอแนะลูกค้า
         </a>
-        <a
-          id="textadmin"
-          style={{ backgroundColor: "#c4c4c4" }}
-          href="./admin5.html"
-        >
+        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin5">
           คูปอง
         </a>
       </div>
