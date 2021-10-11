@@ -60,13 +60,8 @@ const route = {
         path: "/coupon",
         component: Coupon,
       },
-      {
-        path: "/admin1",
-        component: Admin1,
-      },
     ],
   },
-  customer: [],
   user: {
     route: [
       {
