@@ -1,9 +1,30 @@
 import React from "react";
 import "./Form.css";
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import axios from "../../../config/axios";
 
 function AddFormProduct() {
+  const location = useLocation();
+  const history = useHistory();
+
+  const [optionCategory, setOptionCategory] = useState([]);
+
+  useEffect(() => {
+    const fetchCategory = async () => {
+      try {
+        const res = await axios.get("/category");
+        const fetChcategorys = res.data.category;
+        console.log(fetChcategorys);
+        setOptionCategory(fetChcategorys);
+      } catch (err) {
+        console.dir(err);
+      }
+    };
+    fetchCategory();
+  }, []);
+  const [category, setCategory] = useState("");
+  // console.log(category);
   const [productname, setProductName] = useState("");
   const [productdetail, setProductdetail] = useState("");
   const [productprice, setProductprice] = useState("");
@@ -16,18 +37,46 @@ function AddFormProduct() {
     setPicurl(e.target.files[0]);
   };
 
+  const handleAddProduct = async (e) => {
+    try {
+      e.preventDefault();
+
+      const formData = new FormData();
+      formData.append("categoryId", category);
+      formData.append("productname", productname);
+      formData.append("productdetail", productdetail);
+      formData.append("productprice", productprice);
+      formData.append("productamount", productamount);
+      formData.append("picurl", picurl.name);
+
+      const res = await axios.post(`/product`, formData);
+
+      // console.log(res.data);
+
+      history.push("/admin3");
+    } catch (err) {
+      console.log(err);
+      // setErrorAddForm({ ...err, errBack: err.response.data.message });
+    }
+  };
+
   return (
     <div className="form-scope width-700">
       <header style={{ marginBottom: "15px" }}>เพิ่มข้อมูลสินค้า</header>
 
-      <form action="#">
+      <form onSubmit={handleAddProduct}>
         <div className="dbl-field">
           <div className="field">
-            <select name="category" id="district" value="" required>
+            <select
+              name="category"
+              id="district"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
               <option value="">เลือกประเภทสินค้า</option>
-              <option value="Food">Food</option>
-              <option value="Pancake">Pancake</option>
-              <option value="Drink">Drink</option>
+              <option value="1">Food</option>
+              <option value="2">Pancake</option>
+              <option value="2">Drink</option>
             </select>
           </div>
           <div className="field">

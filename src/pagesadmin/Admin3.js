@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "../config/axios";
 
 function Admin3() {
   const history = useHistory();
   const handleAddProduct = () => {
     history.push("/adminaddproduct");
   };
+
+  const [products, setProducts] = useState([]);
+  const [toggle, setToggle] = useState(false);
+
+  const handleClickDelete = async (e, id) => {
+    try {
+      console.log(id);
+      await axios.delete(`/product/${id}`);
+      setToggle((c) => !c);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await axios.get("/product");
+        const resProducts = res.data.products;
+        console.log(resProducts);
+        setProducts(resProducts);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchProduct();
+  }, [toggle]);
+
   return (
     <>
       <section class="pageadmin">

@@ -120,6 +120,31 @@ const route = {
         path: "/profile-orderstatus",
         component: ProfileOrderStatus,
       },
+      {
+        path: "/admin1",
+        component: Admin1,
+      },
+
+      {
+        path: "/admin2",
+        component: Admin2,
+      },
+      {
+        path: "/admin3",
+        component: Admin3,
+      },
+      {
+        path: "/admin4",
+        component: Admin4,
+      },
+      {
+        path: "/admin5",
+        component: Admin5,
+      },
+      {
+        path: "/adminaddproduct",
+        component: AddFormProduct,
+      },
     ],
     redirect: "/",
   },
@@ -168,31 +193,6 @@ const route = {
       {
         path: "/thxfeedback",
         component: ThxFeedback,
-      },
-      {
-        path: "/admin1",
-        component: Admin1,
-      },
-
-      {
-        path: "/admin2",
-        component: Admin2,
-      },
-      {
-        path: "/admin3",
-        component: Admin3,
-      },
-      {
-        path: "/admin4",
-        component: Admin4,
-      },
-      {
-        path: "/admin5",
-        component: Admin5,
-      },
-      {
-        path: "/adminaddproduct",
-        component: AddFormProduct,
       },
     ],
     redirect: "/",
