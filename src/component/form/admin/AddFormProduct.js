@@ -14,8 +14,8 @@ function AddFormProduct() {
     const fetchCategory = async () => {
       try {
         const res = await axios.get("/category");
-        const fetChcategorys = res.data.category;
-        console.log(fetChcategorys);
+        const fetChcategorys = res.data.categorys;
+        // console.log(fetChcategorys);
         setOptionCategory(fetChcategorys);
       } catch (err) {
         console.dir(err);
@@ -24,7 +24,7 @@ function AddFormProduct() {
     fetchCategory();
   }, []);
   const [category, setCategory] = useState("");
-  // console.log(category);
+  console.log(category);
   const [productname, setProductName] = useState("");
   const [productdetail, setProductdetail] = useState("");
   const [productprice, setProductprice] = useState("");
@@ -47,7 +47,7 @@ function AddFormProduct() {
       formData.append("productdetail", productdetail);
       formData.append("productprice", productprice);
       formData.append("productamount", productamount);
-      formData.append("picurl", picurl.name);
+      formData.append("picurl", picurl);
 
       const res = await axios.post(`/product`, formData);
 
@@ -74,9 +74,11 @@ function AddFormProduct() {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">เลือกประเภทสินค้า</option>
-              <option value="1">Food</option>
-              <option value="2">Pancake</option>
-              <option value="2">Drink</option>
+              {optionCategory.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.categoryname}
+                </option>
+              ))}
             </select>
           </div>
           <div className="field">

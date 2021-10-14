@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "../config/axios";
+import picProduct from "../images/productnon.png";
 
 function Admin3() {
+  let count = 1;
   const history = useHistory();
   const handleAddProduct = () => {
     history.push("/adminaddproduct");
@@ -26,7 +28,7 @@ function Admin3() {
       try {
         const res = await axios.get("/product");
         const resProducts = res.data.products;
-        console.log(resProducts);
+        // console.log(resProducts);
         setProducts(resProducts);
       } catch (err) {
         console.log(err);
@@ -85,23 +87,36 @@ function Admin3() {
             <th>แก้ไข</th>
             <th>ลบ</th>
           </tr>
-          <tr>
-            <td>Jill</td>
-            <td>xxx</td>
-            <td>xxx</td>
-            <td>xxxx</td>
-            <td>xxxx</td>
-            <td>
-              <a href="#">
-                <i class="bi bi-hammer"></i>
-              </a>
-            </td>
-            <td>
-              <a href="/">
-                <i class="bi bi-trash"></i>
-              </a>
-            </td>
-          </tr>
+          {products.map((item) => {
+            return (
+              <tr>
+                <td data-label="ลำดับ">{count++}</td>
+                <td data-label="ประเภท">{item.Category.categoryname}</td>
+                <td data-label="ภาพ">
+                  {item.picurl ? (
+                    <img src={item.picurl} alt="product" />
+                  ) : (
+                    <img src={picProduct} alt="product" />
+                  )}
+                </td>
+                <td data-label="Product Price">{item.productprice}</td>
+                <td data-label="Product Detail">{item.productdetail}</td>
+                <td>
+                  <a href="#">
+                    <i class="bi bi-hammer"></i>
+                  </a>
+                </td>
+                <td data-label="Cancle">
+                  <button
+                    className="button-table red"
+                    onClick={(e) => handleClickDelete(e, item.id)}
+                  >
+                    <i className="fas fa-window-close"></i>
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </table>
       </div>
     </>
