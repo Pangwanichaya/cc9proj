@@ -6,13 +6,13 @@ const ProductContext = createContext();
 
 function ProductContextProvider({ children }) {
   const [products, setProducts] = useState([]);
-
+  console.log(products);
   useEffect(() => {
     const getproducts = async () => {
       try {
         const res = await axios.get("/product");
         const resProducts = res.data.products;
-        // console.log(resProducts);
+        console.log(resProducts);
         setProducts(resProducts);
       } catch (err) {
         console.log(err);

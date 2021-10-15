@@ -15,7 +15,7 @@ function AddFormProduct() {
       try {
         const res = await axios.get("/category");
         const fetChcategorys = res.data.categorys;
-        // console.log(fetChcategorys);
+        console.log(fetChcategorys);
         setOptionCategory(fetChcategorys);
       } catch (err) {
         console.dir(err);

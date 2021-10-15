@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/authContext";
 import axios from "../config/axios";
 
-function ProfileAdress() {
+function EditProfileAddress() {
   let { user } = useContext(AuthContext);
 
   const [getUser, setGetUser] = useState([]);
@@ -46,19 +46,18 @@ function ProfileAdress() {
           }}
           className="profile"
         >
-          <a id="editaddress" href="/addprofileaddress">
-            + เพิ่มที่อยุ่ใหม่
-          </a>
           <div className="address">
-            <p id="textpage13">{getUser.name}</p>
-            <p id="textpage13">{getUser.phone}</p>
-            <p id="textpage13">{getUser.address}</p>
+            <input type="text" id="textpage13">
+              {getUser.name}
+              {getUser.phone}
+              {getUser.address}
+            </input>
+
             <div
               style={{ position: "relative", left: "80%", bottom: "50%" }}
               className="changepage11"
             >
-              <a href="/profile-editaddress">แก้ไข</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="/"> ลบ</a>
+              <a href="/profile-address">SAVE</a>
             </div>
           </div>
         </div>
@@ -67,4 +66,4 @@ function ProfileAdress() {
   );
 }
 
-export default ProfileAdress;
+export default EditProfileAddress;

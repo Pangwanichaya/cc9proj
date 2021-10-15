@@ -20,6 +20,9 @@ import Profile from "../pagesprofile/Profile";
 import ProfileAdress from "../pagesprofile/ProfileAdress";
 import ProfileOrderStatus from "../pagesprofile/ProfileOrderStatus";
 import AddFormProduct from "../component/form/admin/AddFormProduct";
+import UpdateFormProduct from "../component/form/admin/UpdateFormProduct";
+import AddProfileAddress from "../pagesprofile/AddProfileAddress";
+import EditProfileAddress from "../pagesprofile/EditProfileAddress";
 
 const route = {
   admin: {
@@ -117,6 +120,10 @@ const route = {
         component: ProfileAdress,
       },
       {
+        path: "/profile-editaddress",
+        component: EditProfileAddress,
+      },
+      {
         path: "/profile-orderstatus",
         component: ProfileOrderStatus,
       },
@@ -144,6 +151,14 @@ const route = {
       {
         path: "/adminaddproduct",
         component: AddFormProduct,
+      },
+      {
+        path: "/adminupdateproduct",
+        component: UpdateFormProduct,
+      },
+      {
+        path: "/addprofileaddress",
+        component: AddProfileAddress,
       },
     ],
     redirect: "/",

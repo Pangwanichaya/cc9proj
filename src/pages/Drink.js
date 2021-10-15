@@ -8,23 +8,29 @@ function Drink() {
     <div>
       <section class="page5">
         {product.map((item) => {
-          return (
-            <div class="imgpage2" key={item.categoryId}>
-              <img src={item.picurl} alt="" />
-              <div class="textpage2">
-                <p>{item.productname}</p>
-                <p>
-                  {item.productprice} <span>฿</span>
-                  <button
-                    onClick={() => onAdd(item)}
-                    style={{ fontSize: "20px", border: "none", margin: "5px" }}
-                  >
-                    <i className="bi bi-cart-plus-fill"></i>
-                  </button>
-                </p>
+          if (item.categoryId === 3) {
+            return (
+              <div class="imgpage2" key={item.categoryId}>
+                <img src={item.picurl} alt="" />
+                <div class="textpage2">
+                  <p>{item.productname}</p>
+                  <p>
+                    {item.productprice} <span>฿</span>
+                    <button
+                      onClick={() => onAdd(item)}
+                      style={{
+                        fontSize: "20px",
+                        border: "none",
+                        margin: "5px",
+                      }}
+                    >
+                      <i className="bi bi-cart-plus-fill"></i>
+                    </button>
+                  </p>
+                </div>
               </div>
-            </div>
-          );
+            );
+          }
         })}
       </section>
     </div>

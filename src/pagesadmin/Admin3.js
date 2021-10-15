@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import axios from "../config/axios";
 import picProduct from "../images/productnon.png";
 
@@ -102,9 +102,9 @@ function Admin3() {
                 <td data-label="Product Price">{item.productprice}</td>
                 <td data-label="Product Detail">{item.productdetail}</td>
                 <td>
-                  <a href="#">
+                  <Link to="/adminupdateproduct">
                     <i class="bi bi-hammer"></i>
-                  </a>
+                  </Link>
                 </td>
                 <td data-label="Cancle">
                   <button
