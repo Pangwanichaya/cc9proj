@@ -58,18 +58,18 @@ function Admin3() {
         <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin1">
           ใบเสร็จ
         </a>
-        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin2">
+        {/* <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin2">
           รายการสั่งซื้อ
-        </a>
+        </a> */}
         <a id="textadmin" style={{ backgroundColor: "#e8bcbc" }} href="/admin3">
           คลังสินค้า
         </a>
-        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin4">
+        {/* <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin4">
           ข้อเสนอแนะลูกค้า
         </a>
         <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin5">
           คูปอง
-        </a>
+        </a> */}
       </div>
       <div class="tableadmin1">
         <div className="btnAdd ">
@@ -102,7 +102,12 @@ function Admin3() {
                 <td data-label="Product Price">{item.productprice}</td>
                 <td data-label="Product Detail">{item.productdetail}</td>
                 <td>
-                  <Link to="/adminupdateproduct">
+                  <Link
+                    to={{
+                      pathname: `/adminupdateproduct/${item.id}`,
+                      state: item,
+                    }}
+                  >
                     <i class="bi bi-hammer"></i>
                   </Link>
                 </td>

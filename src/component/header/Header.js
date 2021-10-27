@@ -63,7 +63,7 @@ function Header() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="btn" to="/promotion">
+                  {/* <NavLink className="btn" to="/promotion">
                     โปรโมชั่น
                   </NavLink>
                 </li>
@@ -75,7 +75,7 @@ function Header() {
                 <li>
                   <NavLink className="btn" to="/feedback">
                     ข้อเสนอแนะ
-                  </NavLink>
+                  </NavLink> */}
                 </li>
               </ul>
             </div>
@@ -126,8 +126,8 @@ function Header() {
                     เครื่องดื่ม
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink className="btn" to="/promotion">
+                {/* <li> */}
+                {/* <NavLink className="btn" to="/promotion">
                     โปรโมชั่น
                   </NavLink>
                 </li>
@@ -140,7 +140,7 @@ function Header() {
                   <NavLink className="btn" to="/feedback">
                     ข้อเสนอแนะ
                   </NavLink>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div class="navright">

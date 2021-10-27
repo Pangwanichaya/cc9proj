@@ -1,17 +1,24 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/authContext";
 import axios from "../config/axios";
+import { useHistory, Link } from "react-router-dom";
 
 function ProfileAdress() {
   let { user } = useContext(AuthContext);
-
+  const history = useHistory();
   const [getUser, setGetUser] = useState([]);
+
+  const handleEditProfile = () => {
+    history.push("/profile-editaddress");
+    // history.push({ pathname: `/CustomerProfileUpdate/${getUser.id}`, state: { getUser } });
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const res = await axios.get(`/profile/${user.id}`);
         const resUser = res.data.user;
+        // console.log(resUser);
         setGetUser(resUser);
       } catch (err) {
         console.log(err);
@@ -19,6 +26,7 @@ function ProfileAdress() {
     };
     fetchUser();
   }, []);
+
   return (
     <>
       <section className="page14">
@@ -46,19 +54,27 @@ function ProfileAdress() {
           }}
           className="profile"
         >
-          <a id="editaddress" href="/addprofileaddress">
-            + เพิ่มที่อยุ่ใหม่
-          </a>
           <div className="address">
             <p id="textpage13">{getUser.name}</p>
             <p id="textpage13">{getUser.phone}</p>
-            <p id="textpage13">{getUser.address}</p>
+            <input
+              style={{ display: "flex" }}
+              type="text"
+              value={getUser.address}
+            />
             <div
               style={{ position: "relative", left: "80%", bottom: "50%" }}
               className="changepage11"
             >
-              <a href="/profile-editaddress">แก้ไข</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="/"> ลบ</a>
+              <Link
+                to={{
+                  pathname: `/profile-editaddress/${getUser.id}`,
+                  state: getUser,
+                }}
+                onClick={handleEditProfile}
+              >
+                <i className="fas fa-pencil-alt"></i>&nbsp;Edit
+              </Link>
             </div>
           </div>
         </div>

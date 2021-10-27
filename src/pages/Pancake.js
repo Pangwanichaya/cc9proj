@@ -6,12 +6,6 @@ function Pancake() {
   const { product, onAdd } = useContext(AddContext);
   return (
     <div>
-      <div class="textpage3">
-        <a href="/toppingpancake">
-          <i class="bi bi-bag-plus" style={{ fontSize: "28px" }}></i>
-          &nbsp;เลือก&nbsp;ท็อปปิ้งด้วยตัวเอง
-        </a>
-      </div>
       <section className="page3">
         {product.map((item) => {
           if (item.categoryId === 2) {

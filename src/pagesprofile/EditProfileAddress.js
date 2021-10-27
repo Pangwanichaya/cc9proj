@@ -1,24 +1,42 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../context/authContext";
+import { useState } from "react";
+
 import axios from "../config/axios";
+import { useHistory, useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function EditProfileAddress() {
-  let { user } = useContext(AuthContext);
+  const location = useLocation();
+  const history = useHistory();
+  // const [id, setId] = useState(location.state.id);
+  const [address, setAddress] = useState(location.state.address);
 
-  const [getUser, setGetUser] = useState([]);
+  const handleSubmitUpdateProfile = async (e) => {
+    e.preventDefault();
+    axios
+      .put(`/profile/${location.state.id}`, { address })
+      .then(() => {
+        history.push({
+          pathname: "/profile-address",
+          state: {
+            successMessage:
+              "Your account has been created. Profileaddress to continue.",
+          },
+        });
+      })
+      .catch((err) => {
+        // if (err.response && err.response.status === 400) {
+        //   props.setError(err.response.data.message);
+        // }
+      });
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await axios.get(`/profile/${user.id}`);
-        const resUser = res.data.user;
-        setGetUser(resUser);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchUser();
-  }, []);
+    // Swal.fire({
+    //   title: "Success",
+    //   text: "Do you want to continue",
+    //   icon: "success",
+    //   confirmButtonText: "OK",
+    // });
+  };
+
   return (
     <>
       <section className="page14">
@@ -37,6 +55,7 @@ function EditProfileAddress() {
             <i className="far fa-edit"></i> ติดตามสถานนะสินค้า
           </a>
         </div>
+
         <div
           style={{
             width: "600px",
@@ -47,18 +66,21 @@ function EditProfileAddress() {
           className="profile"
         >
           <div className="address">
-            <input type="text" id="textpage13">
-              {getUser.name}
-              {getUser.phone}
-              {getUser.address}
-            </input>
+            <form onSubmit={handleSubmitUpdateProfile}>
+              <input
+                type="text"
+                id="textpage13"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              ></input>
 
-            <div
-              style={{ position: "relative", left: "80%", bottom: "50%" }}
-              className="changepage11"
-            >
-              <a href="/profile-address">SAVE</a>
-            </div>
+              <div
+                style={{ position: "relative", left: "80%", bottom: "50%" }}
+                className="changepage11"
+              >
+                <button type="submit">SAVE</button>
+              </div>
+            </form>
           </div>
         </div>
       </section>

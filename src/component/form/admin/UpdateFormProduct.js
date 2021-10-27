@@ -23,13 +23,17 @@ function AddFormProduct() {
     };
     fetchCategory();
   }, []);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(location.state.Category.id);
   // console.log(category);
-  const [productname, setProductName] = useState("");
-  const [productdetail, setProductdetail] = useState("");
-  const [productprice, setProductprice] = useState("");
-  const [productamount, setProductamount] = useState("");
-  const [picurl, setPicurl] = useState("");
+  const [productname, setProductName] = useState(location.state.productname);
+  const [productdetail, setProductdetail] = useState(
+    location.state.productdetail
+  );
+  const [productprice, setProductprice] = useState(location.state.productprice);
+  const [productamount, setProductamount] = useState(
+    location.state.productamount
+  );
+  const [picurl, setPicurl] = useState(location.state.picurl);
 
   // image
   const handleChangeFile = (e) => {
@@ -49,7 +53,7 @@ function AddFormProduct() {
       formData.append("productamount", productamount);
       formData.append("picurl", picurl);
 
-      const res = await axios.post(`/product`, formData);
+      const res = await axios.put(`/product/${location.state.id}`, formData);
 
       // console.log(res.data);
 

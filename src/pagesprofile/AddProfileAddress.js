@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "../config/axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+import { AuthContext } from "../context/authContext";
 
 function AddProfileAddress() {
+  let { user } = useContext(AuthContext);
   const history = useHistory();
+  const loaction = useLocation();
   const [newAddress, setNewAddress] = useState("");
 
   const handleUpdateAddress = async (e) => {
     try {
       e.preventDefault();
-
-      const formData = new FormData();
-      formData.append("address", newAddress);
-
-      const res = await axios.post(`/profile`, formData);
+      axios.post(`/profile/${user.id}`);
 
       // console.log(res.data);
 
@@ -31,6 +30,7 @@ function AddProfileAddress() {
         <input
           type="text"
           style={{ width: "500px", height: "200px" }}
+          value={newAddress}
           onChange={(e) => setNewAddress(e.target.value)}
         ></input>
         <button

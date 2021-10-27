@@ -10,6 +10,7 @@ import { AuthContextProvider } from "./context/authContext";
 import { ProductContextProvider } from "./context/productContext";
 import { OrderContextProvider } from "./context/orderContext";
 import { AddContextProvider } from "./context/addContext";
+import { SearchProvider } from "./context/searchContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,7 +19,9 @@ ReactDOM.render(
         <AddContextProvider>
           <ProductContextProvider>
             <OrderContextProvider>
-              <App />
+              <SearchProvider>
+                <App />
+              </SearchProvider>
             </OrderContextProvider>
           </ProductContextProvider>
         </AddContextProvider>

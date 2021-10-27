@@ -23,6 +23,7 @@ import AddFormProduct from "../component/form/admin/AddFormProduct";
 import UpdateFormProduct from "../component/form/admin/UpdateFormProduct";
 import AddProfileAddress from "../pagesprofile/AddProfileAddress";
 import EditProfileAddress from "../pagesprofile/EditProfileAddress";
+import UpdateSummary from "../component/form/admin/UpdateSummary";
 
 const route = {
   admin: {
@@ -120,7 +121,7 @@ const route = {
         component: ProfileAdress,
       },
       {
-        path: "/profile-editaddress",
+        path: "/profile-editaddress/:id",
         component: EditProfileAddress,
       },
       {
@@ -130,6 +131,10 @@ const route = {
       {
         path: "/admin1",
         component: Admin1,
+      },
+      {
+        path: "/adminupdatesummary/:id",
+        component: UpdateSummary,
       },
 
       {
@@ -153,7 +158,7 @@ const route = {
         component: AddFormProduct,
       },
       {
-        path: "/adminupdateproduct",
+        path: "/adminupdateproduct/:id",
         component: UpdateFormProduct,
       },
       {

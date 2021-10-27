@@ -7,10 +7,10 @@ function Drink() {
   return (
     <div>
       <section class="page5">
-        {product.map((item) => {
+        {product.map((item, idx) => {
           if (item.categoryId === 3) {
             return (
-              <div class="imgpage2" key={item.categoryId}>
+              <div class="imgpage2" key={idx}>
                 <img src={item.picurl} alt="" />
                 <div class="textpage2">
                   <p>{item.productname}</p>

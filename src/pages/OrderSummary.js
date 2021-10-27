@@ -126,21 +126,6 @@ function OrderSummary() {
         </div>
 
         <div class="couponpage11">
-          <p style={{ marginLeft: "10px", fontSize: "16px" }}>
-            คูปอง
-            <input
-              style={{
-                width: "100px",
-                height: "30px",
-                fontSize: "16px",
-                backgroundColor: "#C4C4C4",
-                border: "none",
-                cursor: "pointer",
-              }}
-              type="submit"
-              value="คูปองที่เลือก"
-            />
-          </p>
           <div class="submitpage11">
             <div id="textpage11">
               <p style={{ marginRight: "10px" }}>

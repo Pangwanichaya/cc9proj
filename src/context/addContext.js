@@ -35,13 +35,9 @@ function AddContextProvider({ children }) {
 
   //======================================= function เพิ่ม =======================================
 
-  const onAdd = (productItem) => {
-    console.log(`productItem`, productItem);
-    console.log(`product`, product);
-
-    const idx = product.findIndex((x) => x.id === productItem.id);
-    console.log(idx);
-    const newAdd = [...productItem];
+  const onAdd = (product) => {
+    const idx = productItems.findIndex((x) => x.id === product.id);
+    const newAdd = [...productItems];
     if (idx > -1) {
       newAdd[idx] = { ...newAdd[idx], qty: newAdd[idx].qty + 1 };
     } else {

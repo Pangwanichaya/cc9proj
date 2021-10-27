@@ -25,7 +25,7 @@ function OrderContextProvider({ children }) {
     getOrder();
   }, [toggleFetch]);
 
-  // console.log(order);
+  console.log(order);
 
   return (
     <OrderContext.Provider value={{ order, setOrder, setToggleFetch }}>
