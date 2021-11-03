@@ -3,7 +3,7 @@ import "./Form.css";
 import { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "../../../config/axios";
-
+import Swal from "sweetalert2";
 function AddFormProduct() {
   const location = useLocation();
   const history = useHistory();
@@ -52,7 +52,12 @@ function AddFormProduct() {
       const res = await axios.post(`/product`, formData);
 
       // console.log(res.data);
-
+      Swal.fire({
+        icon: "success",
+        title: "Create a successful product",
+        showConfirmButton: false,
+        timer: 2500,
+      });
       history.push("/admin3");
       window.location.reload();
     } catch (err) {

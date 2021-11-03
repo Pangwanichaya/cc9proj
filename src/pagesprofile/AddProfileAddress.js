@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "../config/axios";
 import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
-
+import Swal from "sweetalert2";
 function AddProfileAddress() {
   let { user } = useContext(AuthContext);
   const history = useHistory();

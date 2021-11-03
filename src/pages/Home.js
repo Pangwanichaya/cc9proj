@@ -1,6 +1,12 @@
 import React from "react";
+import { useContext } from "react";
+import { AddContext } from "../context/addContext";
+
+import { AuthContext } from "../context/authContext";
 
 function Home() {
+  const { product, onAdd } = useContext(AddContext);
+  const { role } = useContext(AuthContext);
   return (
     <div>
       <section class="page1">
@@ -25,7 +31,50 @@ function Home() {
             &nbsp;เมนูแนะนำสำหรับวันนี้
           </h1>
           <br />
-          <img id="imgpage_1" src="./pic/food9Khao Pad (Custom).jpg" alt="" />
+          <div>
+            <section className="page1">
+              {product.map((item, idx) => {
+                if (item.id === 1 || item.id === 2) {
+                  return (
+                    <div className="imgpage1" key={idx}>
+                      {role === "USER" ? (
+                        <a
+                          style={{ textDecoration: "none", color: "inherit" }}
+                          href="/pancake"
+                        >
+                          <img id="pic" src={item.picurl} alt="" />
+                        </a>
+                      ) : (
+                        <img id="pic" src={item.picurl} alt="" />
+                      )}
+                      <div className="textpage2">
+                        <p>{item.productname}</p>
+                        <textarea disabled>{item.productdetail}</textarea>
+
+                        <p>
+                          {item.productprice} <span>฿</span>
+                          {role === "USER" ? (
+                            <button
+                              onClick={() => onAdd(item)}
+                              style={{
+                                fontSize: "20px",
+                                border: "none",
+                                margin: "5px",
+                              }}
+                            >
+                              <i className="bi bi-cart-plus-fill"></i>
+                            </button>
+                          ) : (
+                            ""
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </section>
+          </div>
         </div>
       </section>
     </div>

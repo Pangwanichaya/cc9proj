@@ -23,8 +23,8 @@ body {
   margin: auto;
 }
 
-.current {
-  background-color: #c4c4c4;
+li {
+  color: white;
 }
 
 /* Header */
@@ -75,6 +75,12 @@ footer {
   display: flex;
   justify-content: space-between;
   height: 50px;
+  bottom: 0;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 footer p {
   display: flex;
@@ -98,7 +104,13 @@ footer .ulfooter {
   display: flex;
   flex-direction: column;
 }
-/* page1 */
+/* page1 (home) */
+.page1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .video {
   margin: 150px;
   text-align: center;
@@ -111,10 +123,19 @@ footer .ulfooter {
   align-items: center;
   margin-bottom: 60px;
 }
-.icon_menu #imgpage_1 {
-  margin-top: 25px;
-  border: none;
-  border-radius: 8px;
+.imgpage1 {
+  margin-right: 5rem;
+  padding: 3rem;
+}
+#pic {
+  width: 300px;
+  height: 250px;
+  border-radius: 10px;
+}
+textarea {
+  width: 80%;
+  border-radius: 10px;
+  background-color: inherit;
 }
 
 /* page2 */
@@ -194,6 +215,7 @@ section .feedbackpage8 ::placeholder {
 }
 .loginpage10 {
   display: flex;
+
   flex-direction: column;
   width: 350px;
   height: 350px;
@@ -202,7 +224,7 @@ section .feedbackpage8 ::placeholder {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   box-sizing: border-box;
-  margin: 40px;
+  margin: 100px;
   padding: 20px 0 28px;
 }
 
@@ -442,6 +464,7 @@ th {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  height: 80%;
 }
 a {
   text-decoration: none;

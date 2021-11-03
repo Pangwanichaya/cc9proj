@@ -8,8 +8,9 @@ import { useContext } from "react";
 import Container from "./component/Container";
 
 function App() {
-  const { user } = useContext(AuthContext);
-  const role = user ? "user" : "guest";
+  // const { user } = useContext(AuthContext);
+  const { role } = useContext(AuthContext);
+
   return (
     <div className="App">
       <Header />

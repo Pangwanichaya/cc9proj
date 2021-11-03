@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
+import pic from "../images/1.jpg";
 import { useHistory } from "react-router-dom";
 import axios from "../config/axios";
 import jwtDecode from "jwt-decode";
 import { AuthContext } from "../context/authContext";
 import { setToken } from "../server/localStorage";
-
+import Swal from "sweetalert2";
 function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,11 +23,20 @@ function Login(props) {
       });
       setToken(res.data.token);
       setUser(jwtDecode(res.data.token));
+
+      Swal.fire({
+        icon: "success",
+        title: "Login Success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       history.push("/");
+
+      window.location.reload();
     } catch (err) {
-      if (err.response && err.response.status === 400) {
-        props.setError("Invalid username or password");
-      }
+      // if (err.response && err.response.status === 400) {
+      //   props.setError("Invalid username or password");
+      // }
     }
   };
 
@@ -39,9 +49,9 @@ function Login(props) {
             width: "300px",
             height: "250px",
             position: "relative",
-            top: "60px",
+            top: "100px",
           }}
-          src="../pic/1.jpg"
+          src={pic}
           alt=""
         />
         <div className="loginpage10">

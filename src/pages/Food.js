@@ -12,7 +12,7 @@ function Food() {
           if (item.categoryId === 1) {
             return (
               <div class="imgpage2" key={idx}>
-                <img src={item.picurl} alt="" />
+                <img id="pic" src={item.picurl} alt="" />
                 <div class="textpage2">
                   <p>{item.productname}</p>
                   <p>

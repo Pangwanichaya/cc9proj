@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import axios from "../config/axios";
 import picProduct from "../images/productnon.png";
+import Swal from "sweetalert2";
 
 function Admin3() {
   let count = 1;
@@ -15,11 +16,25 @@ function Admin3() {
 
   const handleClickDelete = async (e, id) => {
     try {
-      console.log(id);
-      await axios.delete(`/product/${id}`);
-      setToggle((c) => !c);
+      Swal.fire({
+        title: "ต้องการลบหรือไม่",
+        // text: "You won't be logout",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios.delete(`/product/${id}`);
+          window.location.reload();
+          setToggle((c) => !c);
+        }
+      });
+
+      // console.log(id);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -58,23 +73,15 @@ function Admin3() {
         <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin1">
           ใบเสร็จ
         </a>
-        {/* <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin2">
-          รายการสั่งซื้อ
-        </a> */}
+
         <a id="textadmin" style={{ backgroundColor: "#e8bcbc" }} href="/admin3">
           คลังสินค้า
         </a>
-        {/* <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin4">
-          ข้อเสนอแนะลูกค้า
-        </a>
-        <a id="textadmin" style={{ backgroundColor: "#c4c4c4" }} href="/admin5">
-          คูปอง
-        </a> */}
       </div>
-      <div class="tableadmin1">
+      <div className="tableadmin1">
         <div className="btnAdd ">
           <button onClick={handleAddProduct}>
-            <i class="fas fa-plus"></i> เพิ่มสินค้า
+            <i className="fas fa-plus"></i> เพิ่มสินค้า
           </button>
         </div>
         <table id="table1" style={{ width: "60%" }}>

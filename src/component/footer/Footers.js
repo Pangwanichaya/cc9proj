@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div>
+    <div className="footer">
       <footer>
         <p style={{ margin: "10px" }}>Copyright &copy; 2021</p>
         <div class="iconfooter">

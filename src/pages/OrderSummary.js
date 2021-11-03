@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AddContext } from "../context/addContext";
 import { AuthContext } from "../context/authContext";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "../config/axios";
 // import "./ProductCart.css";
 
@@ -54,7 +54,11 @@ function OrderSummary() {
             style={{ position: "relative", left: "85%", bottom: "50%" }}
             class="changepage11"
           >
-            <a href="/">แก้ไข</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/"> ลบ</a>
+            <Link
+              to={{ pathname: `/editprofile/${getUser.id}`, state: getUser }}
+            >
+              แก้ไข
+            </Link>
           </div>
         </div>
         <div className="orderpage11">

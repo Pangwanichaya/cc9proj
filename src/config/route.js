@@ -26,7 +26,7 @@ import EditProfileAddress from "../pagesprofile/EditProfileAddress";
 import UpdateSummary from "../component/form/admin/UpdateSummary";
 
 const route = {
-  admin: {
+  ADMIN: {
     route: [
       {
         path: "/",
@@ -43,90 +43,6 @@ const route = {
       {
         path: "/drink",
         component: Drink,
-      },
-      {
-        path: "/promotion",
-        component: Promotion,
-      },
-      {
-        path: "/toppingpancake",
-        component: ToppingPancake,
-      },
-      {
-        path: "/feedback",
-        component: Feedback,
-      },
-      {
-        path: "/toppingpancake",
-        component: ToppingPancake,
-      },
-      {
-        path: "/coupon",
-        component: Coupon,
-      },
-    ],
-  },
-  user: {
-    route: [
-      {
-        path: "/",
-        component: Home,
-      },
-      {
-        path: "/food",
-        component: Food,
-      },
-      {
-        path: "/pancake",
-        component: Pancake,
-      },
-      {
-        path: "/drink",
-        component: Drink,
-      },
-      {
-        path: "/promotion",
-        component: Promotion,
-      },
-      {
-        path: "/toppingpancake",
-        component: ToppingPancake,
-      },
-      {
-        path: "/feedback",
-        component: Feedback,
-      },
-      {
-        path: "/toppingpancake",
-        component: ToppingPancake,
-      },
-      {
-        path: "/coupon",
-        component: Coupon,
-      },
-      {
-        path: "/ordersummary",
-        component: OrderSummary,
-      },
-      {
-        path: "/payment",
-        component: Payment,
-      },
-      {
-        path: "/profile",
-        component: Profile,
-      },
-      {
-        path: "/profile-address",
-        component: ProfileAdress,
-      },
-      {
-        path: "/profile-editaddress/:id",
-        component: EditProfileAddress,
-      },
-      {
-        path: "/profile-orderstatus",
-        component: ProfileOrderStatus,
       },
       {
         path: "/admin1",
@@ -161,6 +77,53 @@ const route = {
         path: "/adminupdateproduct/:id",
         component: UpdateFormProduct,
       },
+    ],
+    redirect: "/",
+  },
+  USER: {
+    route: [
+      {
+        path: "/",
+        component: Home,
+      },
+      {
+        path: "/food",
+        component: Food,
+      },
+      {
+        path: "/pancake",
+        component: Pancake,
+      },
+      {
+        path: "/drink",
+        component: Drink,
+      },
+
+      {
+        path: "/ordersummary",
+        component: OrderSummary,
+      },
+      {
+        path: "/payment",
+        component: Payment,
+      },
+      {
+        path: "/profile",
+        component: Profile,
+      },
+      {
+        path: "/profile-address",
+        component: ProfileAdress,
+      },
+      {
+        path: "/editprofile/:id",
+        component: EditProfileAddress,
+      },
+      {
+        path: "/profile-orderstatus",
+        component: ProfileOrderStatus,
+      },
+
       {
         path: "/addprofileaddress",
         component: AddProfileAddress,
@@ -168,7 +131,7 @@ const route = {
     ],
     redirect: "/",
   },
-  guest: {
+  GUEST: {
     route: [
       {
         path: "/login",
