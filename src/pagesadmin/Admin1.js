@@ -88,7 +88,6 @@ function Admin1() {
               </td>
               <td>
                 <td>
-                  {" "}
                   {order.OrderItems.reduce(
                     (acc, product) =>
                       +acc + +product.productprice * +product.qty,

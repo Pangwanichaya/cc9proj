@@ -103,7 +103,7 @@ function Header() {
         });
 
   return (
-    <div>
+    <div className="headerwidth">
       <header className="header1">
         <Link
           to={`${role === "GUEST" ? "/" : role === "USER" ? "/" : "/admin3"}`}

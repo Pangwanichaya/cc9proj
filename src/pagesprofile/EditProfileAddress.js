@@ -12,10 +12,12 @@ function EditProfileAddress() {
   const [name, setName] = useState(location.state.name);
   const [address, setAddress] = useState(location.state.address);
   const [username, setUsername] = useState(location.state.username);
-  const [password, setPassword] = useState(location.state.password);
+  const [password, setPassword] = useState("");
   const [email, setEmail] = useState(location.state.email);
   const [birthdate, setBirthdate] = useState(location.state.birthdate);
   const [phone, setPhone] = useState(location.state.phone);
+
+  const [error, setError] = useState("");
 
   console.log(location.state.getUser);
 
@@ -34,6 +36,9 @@ function EditProfileAddress() {
 
   const handleSubmitUpdateProfile = async (e) => {
     e.preventDefault();
+    // if (password === "") {
+    //   setError((cur) => ({ ...cur, password: "password is required" }));
+    // }
     axios
       .put(`/profile/${getUser.id}`, {
         name,
@@ -58,13 +63,6 @@ function EditProfileAddress() {
         //   props.setError(err.response.data.message);
         // }
       });
-
-    // Swal.fire({
-    //   title: "Success",
-    //   text: "Do you want to continue",
-    //   icon: "success",
-    //   confirmButtonText: "OK",
-    // });
   };
 
   return (
@@ -114,6 +112,7 @@ function EditProfileAddress() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {error && <div> password is required </div>}
               <p id="textpage13">อีเมล์</p>
               <input
                 id="inputpage13"

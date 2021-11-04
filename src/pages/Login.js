@@ -34,9 +34,9 @@ function Login(props) {
 
       window.location.reload();
     } catch (err) {
-      // if (err.response && err.response.status === 400) {
-      //   props.setError("Invalid username or password");
-      // }
+      if (err.response && err.response.status === 400) {
+        props.setError("Invalid username or password");
+      }
     }
   };
 

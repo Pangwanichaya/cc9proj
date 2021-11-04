@@ -28,7 +28,11 @@ li {
 }
 
 /* Header */
-
+.headerwidth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .header1 {
   background: #e8bcbc;
   color: white;
@@ -36,6 +40,7 @@ li {
   justify-content: space-between;
   position: sticky;
   height: 50px;
+  width: 100%;
   top: 0;
 }
 

@@ -65,7 +65,7 @@ function Profile() {
         <p id="textpage13">Username</p>
         <input id="inputpage13" type="text" value={getUser.username} />
         <p id="textpage13">Password</p>
-        <input id="inputpage13" type="password" value={getUser.password} />
+        <input id="inputpage13" type="password" />
         <p id="textpage13">อีเมล์</p>
         <input id="inputpage13" type="text" value={getUser.email} />
         <p id="textpage13">เบอร์โทรศัพท์</p>
